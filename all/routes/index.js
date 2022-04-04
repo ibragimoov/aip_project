@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/rick', function(req, res, next) {
+router.get('/rick', (req, res, next) => {
     res.render('hero', { 
         title: "Рик",
         picture: "images/rick.png",
@@ -14,7 +14,7 @@ router.get('/rick', function(req, res, next) {
     });
 });
 
-router.get('/morty', function(req, res, next) {
+router.get('/morty', (req, res, next) => {
     res.render('hero', { 
         title: "Морти",
         picture: "images/morty.png",
@@ -22,7 +22,7 @@ router.get('/morty', function(req, res, next) {
     });
 });
 
-router.get('/summer', function(req, res, next) {
+router.get('/summer', (req, res, next) => {
     res.render('hero', { 
             title: "Саммер",
             picture: "images/summer.png",
@@ -30,7 +30,7 @@ router.get('/summer', function(req, res, next) {
     });
 });
 
-router.get('/bet', function(req, res, next) {
+router.get('/bet', (req, res, next) => {
     res.render('hero', {
         title: "Бет",
         picture: "images/bet.png",
@@ -38,7 +38,7 @@ router.get('/bet', function(req, res, next) {
     });
 });
 
-router.get('/jerry', function(req, res, next) {
+router.get('/jerry', (req, res, next) => {
     res.render('hero', {
         title: "Джерри",
         picture: "images/jerry.png",
@@ -46,7 +46,7 @@ router.get('/jerry', function(req, res, next) {
     });
 });
 
-router.get('/messeks', function(req, res, next) {
+router.get('/messeks', (req, res, next) => {
     res.render('hero', {
         title: "Мистер Миссикс",
         picture: "images/messeks.png",
