@@ -47,7 +47,10 @@ router.get('/logreg', function(req, res, next) {
     res.render('logreg',{error:"Пароль не верный"});
 });
 
-
-
+/* POST logout. */
+router.post('/logout', function(req, res, next) {
+    req.session.destroy()
+    res.redirect('/')
+});
 
 module.exports = router;
