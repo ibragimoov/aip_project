@@ -21,9 +21,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <% menu.forEach(function(hero){ %>
-                        <a class="nav-link" href="/heroes/<%=hero.nick%>"><%=hero.title%></a>
-                    <% }) %>  
+                    <% if(typeof nav == 'object' && nav){
+                        nav.forEach(function(item){
+                    %>
+                    <a class="nav-link" href="/heroes/<%= item.nick %>"><%= item.title %></a>
+                    <%
+                    })}
+                    %>
+            
                 </div>                  
                 </div>
             </div>
