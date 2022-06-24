@@ -21,13 +21,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="/rick">Рик</a>
-                    <a class="nav-link" href="/morty">Морти</a>
-                    <a class="nav-link" href="/summer">Саммер</a>
-                    <a class="nav-link" href="/bet">Бет</a>
-                    <a class="nav-link" href="/jerry">Джерри</a>
-                    <a class="nav-link" href="/messeks">Мистер Миссикс</a>
-                </div>
+                    <% menu.forEach(function(hero){ %>
+                        <a class="nav-link" href="/heroes/<%=hero.nick%>"><%=hero.title%></a>
+                    <% }) %>  
+                </div>                  
                 </div>
             </div>
         </nav>
