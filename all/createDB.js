@@ -1,25 +1,42 @@
-// var MongoClient = require("mongodb").MongoClient
-// var data = require("./data.js").data
-// MongoClient.connect("mongodb://localhost:27017/rick-and-morty",
-//     function(err,db){
-//     if(err) throw err
-//     db.dropDatabase()
-//     var collection = db.collection("hero")
-//     collection.insertMany(data,function(err,result){
-//         db.close()
-//     })
-// })
-
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/test')
-var schema = mongoose.Schema({ name: String })
+mongoose.connect('mongodb://localhost/all')
+var Hero = require("./models/hero").Hero
+var async = require('async');
 
-schema.methods.meow = function(){
-    console.log(this.get("name") + " сказал мяу")
-}
-
-var Cat = mongoose.model('Cat', schema)
-var kitty = new Cat({ name: 'Пушок' })
-kitty.save(function (err) {
-kitty.meow()
-})
+mongoose.connection.on("open",function(){
+    var db = mongoose.connection.db
+    db.dropDatabase(function(err) {
+        if(err) throw err
+        async.parallel(
+            [
+                function(callback) {
+                    var pig = new Hero({nick:"pig"})
+                    pig.save(function(err,pig){
+                    callback(err,"pig")
+                    })
+                },
+                function(callback) {
+                    var vinni = new Hero({nick:"vinni"})
+                    vinni.save(function(err,vinni){
+                    callback(err,"vinni")
+                    })
+                },
+                    function(callback) {
+                    var sova = new Hero({nick:"sova"})
+                    sova.save(function(err,sova){
+                    callback(err,"sova")
+                    })
+                }
+            ],
+            function(err,result) {
+                if(err) {
+                    console.log(err)
+                } 
+                else {
+                    console.log("Успешно созданы герои с никами: "
+                    +result.join(", "))
+                }
+                mongoose.disconnect()
+        })
+    })
+    })
