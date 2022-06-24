@@ -8,6 +8,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+var mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/all')
+
+var heroes = require('./routes/heroes');
 
 // view engine setup
 app.engine('ejs',require('ejs-locals'));
@@ -23,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/heroes', heroes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
