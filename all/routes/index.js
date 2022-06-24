@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 /* GET login/registration page. */
 router.get('/logreg', function(req, res, next) {
-    res.render('logreg',{title: 'Вход'});
+    res.render('logreg',{error:null});
 });   
 
 /* POST login/registration page. */
@@ -40,7 +40,13 @@ router.post('/logreg', function(req, res, next) {
         })        
         }
     })
-});    
+});  
+
+/* GET auth page. */
+router.get('/logreg', function(req, res, next) {
+    res.render('logreg',{error:"Пароль не верный"});
+});
+
 
 
 
