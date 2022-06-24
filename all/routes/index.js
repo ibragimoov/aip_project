@@ -12,6 +12,12 @@ router.get('/', function(req, res, next) {
 
 });
 
+/* GET login/registration page. */
+router.get('/logreg', function(req, res, next) {
+    res.render('logreg',{title: 'Вход'});
+});   
+
+
 // /* GET home page. */
 // router.get('/', function(req, res, next) {
 //     res.cookie('greeting', 'Hi!!!').render('index', { title: 'Express', menu:menu });
