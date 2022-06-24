@@ -6,3 +6,49 @@ body {
 a {
   color: #00B7FF;
 }
+
+.nav-link {
+  margin-right: 10px;
+}
+
+.userOff {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  color: red;
+}
+
+.userOn {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  color: green;
+}
+
+.logreg {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+form input {
+  margin-bottom: 20px;
+  margin-left: 200px;
+}
+
+form {
+  text-align: center;
+}
+
+.btn1 {
+  margin-left: 290px;
+}
+
+p, h1 {
+  text-align: center;
+}

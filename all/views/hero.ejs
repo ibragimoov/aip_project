@@ -1,4 +1,12 @@
 <% layout('layout/page.ejs') %>
-<h1><%= title %></h1>
-<img src="<%= picture %>" alt="character" height="100%"/>
-<h4>Несколько слов о нашем герое: <%=desc%></h4>
+<!-- <h1><%= title %></h1> -->
+<!-- <img src="<%= picture %>" alt="character" height="100%"/> -->
+<!-- <h4>Несколько слов о нашем герое: <%=desc%></h4> -->
+
+<div class="logreg" style="width: 18rem;">
+    <img src="<%= picture %>" class="card-img-top" alt="..." width="100%"">
+    <div class="card-body">
+      <h5 class="card-title"><%= title %></h5>
+      <p class="card-text"><%=desc%></p>
+    </div>
+</div>

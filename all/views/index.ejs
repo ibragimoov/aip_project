@@ -1,7 +1,7 @@
 <% layout('layout/page.ejs') %>
 <% if(user) {%>
-<h1>Привет <%= user.username %></h1>
+<h1 class="userOn">Привет <%= user.username %></h1>
 <%  } else { %>
-<h1>Зарегистрируйтесь, чтобы видеть все страницы сайта</h1>
+<h1 class="userOff">Зарегистрируйтесь, чтобы видеть все страницы сайта</h1>
 <% } %>
     
