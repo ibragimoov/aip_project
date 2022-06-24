@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/all')
 var session = require("express-session")
 
@@ -26,10 +26,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
+var MongoStore = require('connect-mongo')(session);
 app.use(session({
-  secret: "VinniIsHero",
-  cookie:{maxAge:60*1000}
+    secret: "VinniIsHero",
+    cookie:{maxAge:60*1000},
+    store: new MongoStore({ mongooseConnection: mongoose.connection})
 }))
+
+
 
 
 app.use('/', indexRouter);
